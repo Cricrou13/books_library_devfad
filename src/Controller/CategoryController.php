@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Controller\AbstractController;
 use App\Service\CategoryService;
+use App\Entity\Category;
 
 class CategoryController extends AbstractController
 {
@@ -22,5 +23,14 @@ class CategoryController extends AbstractController
         }
         //Retourner le template + $data["msg"]
         return $this->render('add_category', 'Ajouter une catégorie', $data ?? []);
+    }
+
+    public function showAllCategorie(): mixed
+    {
+        //Récupération de la liste des categories
+        $data = $this->categoryService->getAllCategories();
+
+        //Retourner le template + $data (liste des catégories)
+        return $this->render('show_all_categories', 'Liste des catégories', $data);
     }
 }

@@ -25,6 +25,10 @@ class CategoryService
         return $this->categoryRepository->findAll();
     }
 
+    /**
+     * Méthode qui gére la logique d'ajout de categorie
+     * @return string $message 
+     */
     public function insertCategory(): string
     {
         //test si le champ est vide
