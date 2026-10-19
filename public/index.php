@@ -14,15 +14,15 @@ $dotenv = Dotenv\Dotenv::createImmutable('../');
 $dotenv->load();
 
 //importer
-
+use App\Controller\HomeController;
 
 //instancier les controllers
-
+$homeController = new HomeController();
 
 //test des valeurs du path
 switch ($path) {
     case '/':
-        echo "Home";
+        $homeController->home();
         break;
     case '/register':
         echo "register";
