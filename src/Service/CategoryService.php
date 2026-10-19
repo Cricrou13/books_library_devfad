@@ -23,4 +23,24 @@ class CategoryService
     {
         return $this->categoryRepository->findAll();
     }
+
+    public function insertCategory(): string
+    {
+        //test si le champ est vide
+        if (empty($_POST["category_name"])) {
+            return "Veuillez remplir le nom de categorie";
+        }
+        //Récupération de la catégorie
+        $category = $this->categoryRepository->findByName($_POST["category_name"]);
+        //test si la catégorie existe déja
+        if ($category) {
+            return "La categorie : " . $category->getName() .  " existe déja";
+        }
+        //Hydratation en Objet Category
+        $newCategory = Category::hydrate($_POST);
+        //Ajout en BDD
+        $this->categoryRepository->create($newCategory);
+        
+        return "La catégorie : " . $_POST["category_name"] . " a été ajouté avec succés";
+    }
 }
