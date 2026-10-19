@@ -32,6 +32,9 @@ switch ($path) {
     case '/category/new':
         $categoryController->addCategory();
         break;
+    case '/categories':
+        $categoryController->showAllCategorie();
+        break;
     default:
         echo "Erreur 404";
         break;
