@@ -15,9 +15,11 @@ $dotenv->load();
 
 //importer
 use App\Controller\HomeController;
+use App\Controller\CategoryController;
 
 //instancier les controllers
 $homeController = new HomeController();
+$categoryController = new CategoryController();
 
 //test des valeurs du path
 switch ($path) {
@@ -26,6 +28,9 @@ switch ($path) {
         break;
     case '/register':
         echo "register";
+        break;
+    case '/category/new':
+        $categoryController->addCategory();
         break;
     default:
         echo "Erreur 404";
