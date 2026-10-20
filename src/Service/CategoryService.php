@@ -52,6 +52,7 @@ class CategoryService
         
         //Ajout en BDD
         $this->categoryRepository->create($newCategory);
+        //$this->categoryRepository->create(new Category($_POST["category_name"]));
 
         return "La catégorie : " . $_POST["category_name"] . " a été ajouté avec succés";
     }

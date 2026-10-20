@@ -14,6 +14,7 @@ class CategoryController extends AbstractController
     {
         $this->categoryService = new CategoryService();
     }
+
     public function addCategory(): mixed
     {
         //Test si le formulaire est soumis
@@ -28,9 +29,9 @@ class CategoryController extends AbstractController
     public function showAllCategorie(): mixed
     {
         //Récupération de la liste des categories
-        $data = $this->categoryService->getAllCategories();
+        $categories = $this->categoryService->getAllCategories();
 
         //Retourner le template + $data (liste des catégories)
-        return $this->render('show_all_categories', 'Liste des catégories', $data);
+        return $this->render('show_all_categories', 'Liste des catégories', $categories);
     }
 }
