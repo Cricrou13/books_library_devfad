@@ -16,10 +16,12 @@ $dotenv->load();
 //importer
 use App\Controller\HomeController;
 use App\Controller\CategoryController;
+use App\Controller\UserController;
 
 //instancier les controllers
 $homeController = new HomeController();
 $categoryController = new CategoryController();
+$userController = new UserController();
 
 //test des valeurs du path
 switch ($path) {
@@ -27,7 +29,7 @@ switch ($path) {
         $homeController->home();
         break;
     case '/register':
-        echo "register";
+        $userController->register();
         break;
     case '/category/new':
         $categoryController->addCategory();
